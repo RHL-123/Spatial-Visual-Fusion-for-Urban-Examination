@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+title: "CEUS Vision-POI Fusion: Multi-source Building-level Residential Inspection with Visual Evidence and Urban Context"
+message: "If you use this repository, please cite the associated manuscript or this repository."
+type: software
+authors:
+  - family-names: Ren
+    given-names: Helei
+  - family-names: Zhao
+    given-names: Kun
+  - family-names: Ban
+    given-names: Qichao
+year: 2026
+url: "https://github.com/RHL-123/ceus-vision-poi-fusion"
+repository-code: "https://github.com/RHL-123/ceus-vision-poi-fusion"
+abstract: "Public code package for a privacy-aware building-level residential inspection workflow that combines visual evidence from object detection models with urban POI context and multi-source fusion evaluation."
+keywords:
+  - building inspection
+  - residential buildings
+  - object detection
+  - point of interest
+  - spatial cross-validation
+  - multi-source fusion
