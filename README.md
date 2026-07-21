@@ -23,6 +23,12 @@ The project is designed around a CEUS manuscript on urban residential building i
 - **Spatial reliability.** The code includes strict community GroupCV and administrative-scale spatial validation utilities to reduce overly optimistic spatial leakage.
 - **Privacy-aware release.** Public tabular files are anonymized; original addresses, community names, building names, and coordinates are not exposed.
 
+## Framework Overview
+
+![Method framework](assets/figures/method_framework.png)
+
+The framework contains four connected stages: visual perception and building-level feature aggregation, POI-based spatial association and prior identification, multi-source fusion and classification inference, and privacy-safe result display. The public repository keeps this workflow reproducible at the code level while excluding identifiable raw images and location-specific source data.
+
 ## Main Results
 
 The public repository includes privacy-safe aggregate figures and source tables. These results are intended to show the experimental logic and headline trends without exposing raw images, building-level predictions, or identifiable locations.
