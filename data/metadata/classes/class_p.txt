@@ -1,0 +1,10 @@
+addition_balconies_windows
+aging_modification
+elevator_addition
+fire_hydrant_well
+floor_damage
+no_aging_place_modifications
+public_spaces_illegal_occupation
+stairs_damage
+wall_damage
+

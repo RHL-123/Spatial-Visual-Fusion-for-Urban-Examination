@@ -1,0 +1,7 @@
+pipeline_damage
+addition_balconies_windows
+public_spaces_illegal_occupation
+no_aging_place_modifications
+wall_damage
+illegal_renovation_expansion
+elevator_addition

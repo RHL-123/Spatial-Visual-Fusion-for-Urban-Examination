@@ -1,0 +1,62 @@
+models:
+  yolov8_balanced:
+    display_name: YOLOv8 balanced
+    role: main
+    arch: yolo
+    imgsz: 640
+    batch: 32
+    output_prefix: yolov8_balanced
+    expected_data_keyword: datasets_balanced
+    weights: 02_YOLO_Training/training_runs/yolov8/yolov8_datasets_balanced/weights/best.pt
+    args: 02_YOLO_Training/training_runs/yolov8/yolov8_datasets_balanced/args.yaml
+  yolov9_640_balanced:
+    display_name: YOLOv9 640 balanced
+    role: main
+    arch: yolo
+    imgsz: 640
+    batch: 16
+    output_prefix: yolov9_640_balanced
+    expected_data_keyword: datasets_balanced
+    weights: 02_YOLO_Training/training_runs/yolov9/yolov9_datasets_balanced/weights/best.pt
+    args: 02_YOLO_Training/training_runs/yolov9/yolov9_datasets_balanced/args.yaml
+  yolov9_1280_balanced:
+    display_name: YOLOv9 1280 balanced
+    role: supplementary_high_resolution
+    arch: yolo
+    imgsz: 1280
+    batch: 8
+    output_prefix: yolov9_1280_balanced
+    expected_data_keyword: datasets_balanced
+    weights: 02_YOLO_Training/training_runs/yolov9/yolov9_datasets_balanced_imgsz12803/weights/best.pt
+    args: 02_YOLO_Training/training_runs/yolov9/yolov9_datasets_balanced_imgsz12803/args.yaml
+  yolov10_balanced:
+    display_name: YOLOv10 balanced
+    role: main
+    arch: yolo
+    imgsz: 640
+    batch: 32
+    output_prefix: yolov10_balanced
+    expected_data_keyword: datasets_balanced
+    weights: 02_YOLO_Training/training_runs/yolov10/yolov10_datasets_balanced/weights/best.pt
+    args: 02_YOLO_Training/training_runs/yolov10/yolov10_datasets_balanced/args.yaml
+  yolo11_balanced:
+    display_name: YOLO11 balanced
+    role: main
+    arch: yolo
+    imgsz: 640
+    batch: 32
+    output_prefix: yolo11_balanced
+    expected_data_keyword: datasets_balanced
+    weights: 02_YOLO_Training/training_runs/yolo11/yolo11_datasets_balanced/weights/best.pt
+    args: 02_YOLO_Training/training_runs/yolo11/yolo11_datasets_balanced/args.yaml
+  rtdetr_balanced:
+    display_name: RT-DETR balanced
+    role: main
+    arch: rtdetr
+    imgsz: 640
+    batch: 16
+    output_prefix: rtdetr_balanced
+    expected_data_keyword: datasets_balanced
+    weights: 02_YOLO_Training/training_runs/rtdetr/rtdetr_datasets_balanced/weights/best.pt
+    args: 02_YOLO_Training/training_runs/rtdetr/rtdetr_datasets_balanced/args.yaml
+

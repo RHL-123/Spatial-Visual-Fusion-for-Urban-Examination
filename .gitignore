@@ -1,0 +1,49 @@
+# heavy/private data
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.gif
+*.tif
+*.tiff
+*.webp
+*.pdf
+*.docx
+*.pptx
+*.pt
+*.pth
+*.onnx
+*.pkl
+*.joblib
+*.zip
+*.rar
+*.7z
+*.log
+*.json
+!configs/**/*.json
+!scripts/**/*.json
+
+# caches/dependencies
+__pycache__/
+.pytest_cache/
+node_modules/
+.pnpm/
+
+# experiment outputs
+outputs/
+ablation_results/
+training_runs/
+prediction_results/
+run_logs/
+logs/
+work/
+tmp/
+
+# raw data folders
+datasets/
+datasets_balanced/
+dataset_predict/
+images_*/
+xmls_*/
+~$*
+
