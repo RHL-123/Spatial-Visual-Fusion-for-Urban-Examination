@@ -23,6 +23,42 @@ The project is designed around a CEUS manuscript on urban residential building i
 - **Spatial reliability.** The code includes strict community GroupCV and administrative-scale spatial validation utilities to reduce overly optimistic spatial leakage.
 - **Privacy-aware release.** Public tabular files are anonymized; original addresses, community names, building names, and coordinates are not exposed.
 
+## Main Results
+
+The public repository includes privacy-safe aggregate figures and source tables. These results are intended to show the experimental logic and headline trends without exposing raw images, building-level predictions, or identifiable locations.
+
+### Ablation Under Strict Community GroupCV
+
+![Ablation macro-F1 under strict community GroupCV](assets/figures/ablation_macro_f1.png)
+
+Under strict community GroupCV, the multi-source contextual fusion setting (MSCF) achieves the highest aggregate Macro-F1 among the released ablation groups. POI-only context (UFCO) does not replace visual evidence, but POI context can provide auxiliary gains when fused with building-level visual evidence.
+
+### Class-wise Fusion Gains
+
+![Class-wise F1 gain heatmap](assets/figures/fusion_gain_heatmap.png)
+
+The class-wise gain heatmap shows that POI contributions are category-dependent. This is the expected behavior for urban context features: they are contextual priors rather than direct visual evidence.
+
+### Probability Ranking Curves
+
+![Macro ROC and PR curves](assets/figures/macro_roc_pr_curves.png)
+
+The ROC/PR curves summarize probability-ranking behavior across model families. PR curves are especially important for sparse building condition categories.
+
+### POI Correlation Diagnostics
+
+![Pearson POI correlation heatmap](assets/figures/poi_pearson_heatmap.png)
+
+![Spearman POI correlation heatmap](assets/figures/poi_spearman_heatmap.png)
+
+These correlation diagnostics motivate the use of POI context as an auxiliary spatial signal. They should not be interpreted as causal evidence.
+
+Released aggregate result tables:
+
+- `assets/results/ablation_macro_f1_summary.csv`
+- `assets/results/fusion_gain_by_class.csv`
+- `assets/results/spatial_generalization_summary.csv`
+
 ## Method Overview
 
 The workflow is organized as five stages:
@@ -45,6 +81,10 @@ In the manuscript terminology, the four major model families correspond to:
 ```text
 configs/
   visual_training_args/             # lightweight visual-training configuration references
+
+assets/
+  figures/                          # privacy-safe aggregate result figures
+  results/                          # aggregate result source tables
 
 data/
   ground_truth/                     # anonymized ground-truth table for public code paths
