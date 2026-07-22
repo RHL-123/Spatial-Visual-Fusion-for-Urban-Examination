@@ -62,8 +62,6 @@ These correlation diagnostics motivate the use of POI context as an auxiliary sp
 Released aggregate result tables:
 
 - `assets/results/ablation_macro_f1_summary.csv`
-- `assets/results/fusion_gain_by_class.csv`
-- `assets/results/spatial_generalization_summary.csv`
 
 ## Method Overview
 
@@ -228,8 +226,8 @@ If this repository helps your work, please cite the associated manuscript when i
 
 ```bibtex
 @misc{ceus_vision_poi_fusion_2026,
-  title        = {CEUS Vision-POI Fusion: Multi-source Building-level Residential Inspection with Visual Evidence and Urban Context},
-  author       = {Ren, Helei and Zhao, Kun and Ban, Qichao and collaborators},
+  title        = {How Does Urban Context Relate to Residential Building Health? A Vision-POI Fusion Framework for Building-Level Housing Inspection},
+  author       = {Zhao, Kun and Ren, Helei and Tang, Guilin and Chen, Tianyi and Song, Zhehui and Liu, Xing and Zhou, Lijian and Zhao, Yuhong and Gao, Xiang and Jiang, Jinming and Ban, Qichao},
   year         = {2026},
   howpublished = {GitHub repository},
   url          = {https://github.com/RHL-123/ceus-vision-poi-fusion}
