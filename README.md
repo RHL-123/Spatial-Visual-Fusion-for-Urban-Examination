@@ -1,6 +1,6 @@
-# CEUS Vision-POI Fusion
+# Spatial-Visual Fusion Framework (SV-Fusion)
 
-### Multi-source building-level residential inspection with visual evidence and urban POI context
+### Official Code for: *Does the 15-Minute Community Life Circle Inform Residential Building Health? Spatial-Visual Fusion Framework for Urban Physical Examination* (iScience / Cell Press)
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](https://www.python.org/)
 [![YOLO](https://img.shields.io/badge/Visual%20Detectors-YOLO%2FRT--DETR-green)](#visual-front-end)
@@ -8,7 +8,7 @@
 
 This repository contains the public code package for a building-level residential inspection workflow. The pipeline combines visual defect evidence from object detection models with point-of-interest (POI) context and evaluates multiple fusion strategies under ordinary cross-validation and strict spatial group cross-validation.
 
-The project is designed around a CEUS manuscript on urban residential building inspection. It focuses on whether urban functional context can provide complementary information beyond visual building evidence.
+This project provides the official research codebase and evaluation pipeline for our study published in *iScience* (Cell Press). The framework investigates whether 15-minute community life circle functional contexts provide informative priors for residential building health, establishing an end-to-end spatial-visual fusion architecture (MSCF) combined with multi-perspective aerial-street visual aggregation (MVVA).
 
 ## News
 
@@ -103,141 +103,3 @@ scripts/
   03_prediction/                    # prediction and visual evidence aggregation utilities
   04_poi_collection_and_correlation/# POI crawling, cleaning, and correlation analysis
   05_fusion_evaluation/             # ablation, GroupCV, feature exploration, and summaries
-```
-
-## Installation
-
-Create a Python environment and install the lightweight tabular dependencies:
-
-```bash
-conda create -n ceus-fusion python=3.9 -y
-conda activate ceus-fusion
-pip install -r requirements.txt
-```
-
-Visual detector training requires additional detector-specific environments, such as Ultralytics/YOLO, RT-DETR, or the corresponding CUDA-enabled PyTorch stack. Those environments are intentionally not pinned here because they depend on GPU drivers and training hardware.
-
-## Quick Start
-
-Run commands from the repository root.
-
-Check the main ablation entry:
-
-```bash
-python scripts/05_fusion_evaluation/evaluate_ablation.py --help
-```
-
-Run an ordinary CV experiment:
-
-```bash
-python scripts/05_fusion_evaluation/evaluate_ablation.py \
-  --model-name yolov8_balanced \
-  --poi-radius 1000 \
-  --fusion-policy guarded \
-  --cv-mode stratified
-```
-
-Run a strict community GroupCV experiment:
-
-```bash
-python scripts/05_fusion_evaluation/evaluate_ablation_groupcv.py \
-  --model-name yolov8_balanced \
-  --poi-radius 1000 \
-  --fusion-policy guarded
-```
-
-Run administrative-scale spatial validation after preparing a valid group column:
-
-```bash
-python scripts/05_fusion_evaluation/evaluate_spatial_cv_group.py \
-  --model-name yolov8_balanced \
-  --poi-radius 1000
-```
-
-## Data And Privacy
-
-This public repository does **not** include:
-
-- raw building images;
-- training/validation image folders;
-- annotated inspection images;
-- raw POI JSON files;
-- trained detector weights;
-- processed visual evidence tables;
-- manuscript Word/PDF/PPT files;
-- intermediate logs and experiment outputs.
-
-The included tabular files are anonymized. Real community names, street names, building names, addresses, and coordinates were replaced with placeholder identifiers such as `COMM_0001`, `STREET_0001`, and `BLDG_0001`. Coordinate-like columns were redacted or replaced with non-geographic placeholders.
-
-Because processed visual evidence tables and model weights are excluded, the public package should be treated as a code-and-workflow release. Full numerical reproduction requires access to the private image dataset, trained weights, and processed visual prediction tables.
-
-## Visual Front End
-
-Visual training scripts are located in:
-
-```text
-scripts/02_visual_training/
-```
-
-The public package includes lightweight `args.yaml` references under:
-
-```text
-configs/visual_training_args/
-```
-
-These files document representative training settings, while the trained weights are not included.
-
-## POI Context
-
-POI scripts are located in:
-
-```text
-scripts/04_poi_collection_and_correlation/
-```
-
-The released POI feature tables are anonymized and stored under:
-
-```text
-data/poi_features/
-```
-
-The POI features are used as contextual priors rather than causal determinants. The manuscript interprets POI context as an auxiliary spatial signal that may help distinguish visually ambiguous or environmentally dependent building conditions.
-
-## Fusion Evaluation
-
-Core evaluation scripts are located in:
-
-```text
-scripts/05_fusion_evaluation/
-```
-
-Main entry points:
-
-- `evaluate_ablation.py`: ordinary CV and community-group evaluation entry.
-- `evaluate_ablation_groupcv.py`: strict community GroupCV wrapper.
-- `evaluate_spatial_cv_group.py`: administrative-scale spatial validation.
-- `bootstrap_significance.py`: paired uncertainty analysis for fusion gains.
-- `explore_poi_feature_groups.py`: POI feature-group sensitivity analysis.
-- `explore_vision_feature_groups.py`: visual feature ablation.
-
-## Citation
-
-If this repository helps your work, please cite the associated manuscript when it becomes available.
-
-```bibtex
-@misc{ceus_vision_poi_fusion_2026,
-  title        = {How Does Urban Context Relate to Residential Building Health? A Vision-POI Fusion Framework for Building-Level Housing Inspection},
-  author       = {Zhao, Kun and Ren, Helei and Tang, Guilin and Chen, Tianyi and Song, Zhehui and Liu, Xing and Zhou, Lijian and Zhao, Yuhong and Gao, Xiang and Jiang, Jinming and Ban, Qichao},
-  year         = {2026},
-  howpublished = {GitHub repository},
-  url          = {https://github.com/RHL-123/ceus-vision-poi-fusion}
-}
-```
-
-## Acknowledgement
-
-This project builds on the broader open-source ecosystem for object detection, tabular machine learning, and spatial data analysis, including PyTorch, scikit-learn, pandas, Ultralytics/YOLO, and related detector implementations.
-
-## License
-
-No open-source license has been selected yet. Please contact the authors before reusing the code or data outside academic review and reproduction discussions.
